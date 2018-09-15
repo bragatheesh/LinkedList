@@ -98,7 +98,34 @@ struct node* createNewNode(int name, int value) {
 }
 
 int getLinkedListLength() {
+	if(head == NULL) {
+		printf("Head not initialized, call init first\n");
+		return -1;
+	}
 	return head->value;
+}
+
+
+void printLinkedList() {
+	if(head == NULL) {
+		printf("Head not initialized, call init first\n");
+		return;
+	}
+
+	struct node* temp = head;
+	int count = 1;
+	
+	printf("\n\nHEAD\nNAME: %d\nVALUE: %d\n\n", temp->name, temp->value);
+	temp = temp->next;
+
+	while(temp->next != NULL) {
+		printf("NODE: %d\nNAME: %d\nVALUE: %d\n", count, temp->name, temp->value);
+		count++;
+		temp = temp->next;
+	}
+	
+	printf("NODE: %d\nNAME: %d\nVALUE: %d\n\n", count, temp->name, temp->value);
+
 }
 
 

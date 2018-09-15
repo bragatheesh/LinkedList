@@ -7,10 +7,10 @@ int init();
 
 int cleanup();
 
-int addToLinkedList(struct node* new);
-
 struct node* createNewNode(int name, int value);
 
-int getLinkedListLenght();
+int getLinkedListLength();
+
+void printLinkedList();
 
 #endif
