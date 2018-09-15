@@ -14,6 +14,7 @@ struct node {
 };
 
 struct node* head = NULL;
+struct node* current = NULL;
 
 int init() {
 
@@ -28,6 +29,8 @@ int init() {
 	head->value = 0;
 	head->next = NULL;
 	
+	current = head;
+
 	return 0;
 }
 
@@ -57,14 +60,16 @@ int cleanup() { //still need to decrement head value
 
 int addToLinkedList(struct node* new) {
 
-	struct node* temp = head;
-	while(temp->next != NULL){
-
-		temp = temp->next;
+	if(current == NULL) {
+		printf("Error, no head node initialized. Call init() first\n");
+		return -1;
 	}
 
-	temp->next = new;
+	current->next = new;
+	current = new;
+	
 	head->value++;
+	
 	return 0;
 }
 
@@ -119,7 +124,7 @@ void printLinkedList() {
 	temp = temp->next;
 
 	while(temp->next != NULL) {
-		printf("NODE: %d\nNAME: %d\nVALUE: %d\n", count, temp->name, temp->value);
+		printf("NODE: %d\nNAME: %d\nVALUE: %d\n\n", count, temp->name, temp->value);
 		count++;
 		temp = temp->next;
 	}

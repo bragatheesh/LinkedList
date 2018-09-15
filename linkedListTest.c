@@ -3,6 +3,29 @@
 
 #include "linkedList.h"
 
+int addNodes(int numOfNodes) {
+	int count = 1;
+	while(count != numOfNodes + 1) {
+	
+		if(createNewNode(count,count) != NULL) {
+			if(getLinkedListLength() > 0) {
+
+				//printf("Added %d %d successfully\n", count, count);
+			} else {
+
+				printf("Error adding new node %d %d\n", count, count);
+				return -1;
+			}
+
+		} else {
+			printf("Error adding new node %d %d\n", count, count);
+			return -1;
+		}
+	count++;
+	}
+
+	return count;
+}
 
 int main() {
 
@@ -12,27 +35,13 @@ int main() {
 	} else {
 		printf("Init success\n");
 	}
+
+	addNodes(10240);
+
+	//printLinkedList();
 	
-
-	if(createNewNode(1,1) != NULL) {
-		if(getLinkedListLength() > 0) {
-
-			printf("Added 1 1 successfully\n");
-		} else {
-
-			printf("Error adding new node 1 1\n");
-			goto clean;
-		}
-
-	} else {
-		printf("Error adding new node 1 1\n");
-		goto clean;
-	}
-
-	printLinkedList();
-
-
-
+	printf("Linked list lenght after all adds: %d\n", getLinkedListLength());
+	
 clean:
 	if(cleanup() != 0) {
 		printf("Error, cleanup failed\n");
