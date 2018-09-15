@@ -1,0 +1,13 @@
+This is a very simple Linked List implementation.
+
+include "linkedList.h"
+
+init() initializes the head node of the linked list
+
+cleanup() iteratively frees each node in the linked list and frees head last
+
+createNewNode(int name, int value) adds a new node with name and value to the linked list
+
+getLinkedListLength() will return the length of the linked list
+
+
