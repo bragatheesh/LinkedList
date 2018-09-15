@@ -10,4 +10,4 @@ createNewNode(int name, int value) adds a new node with name and value to the li
 
 getLinkedListLength() will return the length of the linked list
 
-
+printLinkedList() will print each element of the linked list
