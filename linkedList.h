@@ -9,6 +9,8 @@ int cleanup();
 
 struct node* createNewNode(int name, int value);
 
+int deleteNode(int name, int value); 
+
 int getLinkedListLength();
 
 void printLinkedList();

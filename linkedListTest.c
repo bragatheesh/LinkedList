@@ -36,12 +36,38 @@ int main() {
 		printf("Init success\n");
 	}
 
-	addNodes(10240);
+	addNodes(10);
 
-	//printLinkedList();
+	printLinkedList();
 	
-	printf("Linked list lenght after all adds: %d\n", getLinkedListLength());
+	printf("Linked list length after all adds: %d\n", getLinkedListLength());
+
+	if(!deleteNode(3,3)) {
+		printLinkedList();
 	
+		printf("Linked list length after deleting node 3: %d\n", getLinkedListLength());
+	}
+
+	if(!deleteNode(10,10)) {
+		printLinkedList();
+	
+		printf("Linked list length after deleting node 10: %d\n", getLinkedListLength());
+	}
+
+	if(!deleteNode(0,8)) {
+		printLinkedList();
+	
+		printf("Linked list length after deleting node 0: %d\n", getLinkedListLength());
+	}
+
+	if(!deleteNode(1,1)) {
+		printLinkedList();
+	
+		printf("Linked list length after deleting node 1: %d\n", getLinkedListLength());
+	}
+
+
+
 clean:
 	if(cleanup() != 0) {
 		printf("Error, cleanup failed\n");

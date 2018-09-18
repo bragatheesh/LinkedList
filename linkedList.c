@@ -102,6 +102,50 @@ struct node* createNewNode(int name, int value) {
 	} 
 }
 
+
+
+int deleteNode(int name, int value) { //find ndoe to delete by matching name value pair, probably not a good idea unless name, value pair are unique or name is unique
+
+	struct node* temp, *prev;
+	int found = 0;
+	prev = head;
+	temp = head;
+
+	if(name == head->name && value == head->value) {
+	
+		printf("Error, cannot delete HEAD node\n");
+		return -1;
+	}
+
+	while(temp->next != NULL) {
+
+		if(temp->name == name && temp->value == value) {
+			prev->next = temp->next;
+			free(temp);
+			head->value--;
+			found = 1;
+		} else {
+			prev = temp;
+			temp = temp->next;
+		}
+
+	}
+	
+	if(found == 0 && temp->name == name && temp->value == value) { //case where we delete the last node of the list
+		prev->next = NULL;
+		free(temp);
+		head->value--;
+		found = 1;
+	}
+
+	if(found)
+		return 0;
+	else
+		return -1;
+}
+
+
+
 int getLinkedListLength() {
 	if(head == NULL) {
 		printf("Head not initialized, call init first\n");
